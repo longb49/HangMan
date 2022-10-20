@@ -29,24 +29,26 @@ public class Word
       return wordLength(choice);
    }
 
+   //BELOW ARE THE PREVIOUS METHODS
    // Turns the word into an array //
-   private char[] wordToArray(string choice)
-   {
-      char[] wArray = new char[getWordLength(choice)];
+   // private char[] wordToArray(string choice)
+   // {
+   //    char[] wArray = new char[getWordLength(choice)];
 
-      for (int i = 0; i < getWordLength(choice); i++) 
-      { 
-            wArray[i] = getGenWord(choice)[i]; 
-      } 
+   //    for (int i = 0; i < getWordLength(choice); i++) 
+   //    { 
+   //          wArray[i] = getGenWord(choice)[i]; 
+   //    } 
 
-      return wArray; 
-   }
+   //    return wArray; 
+   // }
 
-   // Makes a public reference to wordToArray //
-   public char[] getWordToArray(string choice)
-   {
-      return wordToArray(choice);
-   }
+   // // Makes a public reference to wordToArray //
+   // public char[] getWordToArray(string choice)
+   // {
+   //    return wordToArray(choice);
+   // }
+   // BEFORE IS THE PREVIOUS METHODS
 
    // Creates an array of underscores the length of the word //
    private List<string> wordToUnderscore(string choice)
@@ -67,7 +69,15 @@ public class Word
       return wordToUnderscore(choice);
    }
 
-   
+   public List<int> findIdx(string word, string guess)
+   {
+      var foundIdx = new List<int>();
+      for (int i = word.IndexOf(guess); i > -1; i = word.IndexOf(guess, i++))
+      {
+         foundIdx.Add(i);
+      }
+      return foundIdx;
+   }
 
 
 
