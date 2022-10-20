@@ -2,11 +2,7 @@ public class Word
 {
    // Gets a word from the library and creates a dash for each letter// 
    Library wordlist = new Library();
-
-   // Gets input from console to determine the difficulty of the word //
-   // *** Need to limit input to specific inputs to work with getWord *** //
-   string? choice = Console.ReadLine() ?? "";
-
+   
    // Gets a word from the word list based on the difficulty choice //
    private string genWord(string choice)
    {
@@ -70,6 +66,8 @@ public class Word
    {
       return wordToUnderscore(choice);
    }
+
+   
 
 
 
