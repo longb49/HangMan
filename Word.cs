@@ -29,6 +29,7 @@ public class Word
       return wordLength(choice);
    }
 
+   
    //BELOW ARE THE PREVIOUS METHODS
    // Turns the word into an array //
    // private char[] wordToArray(string choice)
@@ -49,6 +50,7 @@ public class Word
    //    return wordToArray(choice);
    // }
    // BEFORE IS THE PREVIOUS METHODS
+   
 
    // Creates an array of underscores the length of the word //
    private List<string> wordToUnderscore(string choice)
@@ -70,6 +72,7 @@ public class Word
    }
 
    // BELOW IS BEN'S PROTOTYPE
+   // Creates an array of inters which will hold the indexes of the user guess letter //
    public List<int> findIdx(string word, string guess)
    {
       var foundIdx = new List<int>();
@@ -79,10 +82,5 @@ public class Word
       }
       return foundIdx;
    }
-
-
-
-
-
 
 }
