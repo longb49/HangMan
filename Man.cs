@@ -1,7 +1,7 @@
 class Man
 {
     private List<string> player_states = new List<string>();
-    private int health = 4;
+    public int health = 4;
 
     private Man()
     {
