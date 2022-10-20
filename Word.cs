@@ -69,6 +69,7 @@ public class Word
       return wordToUnderscore(choice);
    }
 
+   // BELOW IS BEN'S PROTOTYPE
    public List<int> findIdx(string word, string guess)
    {
       var foundIdx = new List<int>();
