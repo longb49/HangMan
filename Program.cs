@@ -1,6 +1,6 @@
 class Loop
 {
-    private void Main()
+    public void Main()
     {
         IsOver gameOver = new IsOver();
         Word word = new Word();
