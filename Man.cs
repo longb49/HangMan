@@ -36,6 +36,4 @@ class Man
     {
         return manState(player_states, health);
     }
-
-    
 }
