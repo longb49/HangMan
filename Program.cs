@@ -1,51 +1,53 @@
 class Loop
 {
-    public void Main()
+    static void Main()
     {
         IsOver gameOver = new IsOver();
         Word word = new Word();
         Man status = new Man();
+        Loop loop = new Loop();
 
         List<string> playerstate = status.getPlayerStates();
 
         int health = 4;
 
+        Console.WriteLine("Please select your difficulty: [easy/medium/hard]");
+
         string choice = Console.ReadLine() ?? "";
 
         string gameWord = word.getGenWord(choice);
 
-        List<string> blankWord = word.getWordToUnderscore(choice);
+        List<string> blankWord = word.getWordToUnderscore(gameWord);
 
-        bool isFinished = gameOver.isFinished(blankWord);
+        List<string> misses = new List<string>();
+
+        bool isFinished = false;
         
         while(isFinished != true)
         {
            Console.WriteLine(status.getManState(playerstate, health));
+           Console.WriteLine(string.Join(", ", blankWord));
+           Console.WriteLine(string.Join(", ", misses));
 
            string userGuess = Console.ReadLine() ?? ""; 
+           bool result = loop.guessRight(gameWord, userGuess);
 
-           if(guessRight(gameWord, userGuess) == true)
+           if(result == true)
            {
-                replaceUnArray(gameWord, userGuess);
+                var foundIdx = word.findIdx(gameWord, userGuess);
+                blankWord = loop.replaceUnArray(blankWord, userGuess, foundIdx);
            }
            else
            {
                 status.health = status.health - 1;
+                misses.Add(userGuess);
            }
+           gameOver.isDead(health);
+           gameOver.isFinished(blankWord);
         }
     }
     
-    
-
-//    public int wasRight(List<int> unList)
-//    {
-//         if (unList.Count == 0)
-//         {
-//             // REMIND BEN TO FINISH THIS
-//         }
-
-//    }
-    private bool guessRight(string gameWord, string userGuess)
+    public bool guessRight(string gameWord, string userGuess)
     {
         Word word = new Word();
 
@@ -60,14 +62,14 @@ class Loop
 
     }
 
-   private void replaceUnArray(string gameWord, string userGuess)
+   private List<string> replaceUnArray(List<string> blankWord, string userGuess, List<int> foundIdx)
    {
         Word word = new Word();
-        var unList = word.getWordToUnderscore(gameWord);
-        foreach(int i in word.findIdx(gameWord, userGuess))
+        foreach (int i in foundIdx)
         {
-            unList[i] = userGuess;
+            blankWord[i] = userGuess;
         }
+        return blankWord;
    }
 
 

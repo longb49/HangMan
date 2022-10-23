@@ -1,7 +1,5 @@
 ﻿class IsOver
 {
-    // private string ending = ""; //
-
     public bool isDead(int health)
     {
         if (health == 0)
