@@ -23,7 +23,7 @@ class Loop
 
         bool isFinished = false;
         
-        while(isFinished != true)
+        while (isFinished != true)
         {
            Console.WriteLine(playerstate[health]);
            Console.WriteLine(string.Join("", blankWord));
@@ -42,8 +42,18 @@ class Loop
                 health = health - 1;
                 misses.Add(userGuess);
            }
-           isFinished = gameOver.isDead(health);
-           isFinished = gameOver.isFinished(blankWord);
+           bool dead = gameOver.isDead(health);
+           bool finished = gameOver.isFinished(blankWord);
+           if (dead == true && finished == false)
+           {
+                Console.WriteLine("You died...");
+                break;
+           }
+           else if (dead == false && finished == true)
+           {
+                Console.WriteLine("You win!!!");
+                break;
+           }
         }
     }
     
