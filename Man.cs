@@ -6,7 +6,6 @@ class Man
     {
         return player_states;
     }
-    public int health = 4;
 
     public Man()
     {

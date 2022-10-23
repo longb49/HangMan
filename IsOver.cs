@@ -14,9 +14,19 @@
 
     public bool isFinished(List<string> unArray)
     {
-        List<int> idx = new List<int>{};
-        idx.Add(unArray.IndexOf("_"));
-        if (idx.Count == 0)
+        int check = 0;
+        foreach (string i in unArray)
+        {
+            if (i == "_")
+            {
+                check++;
+            }
+            else
+            {
+                continue;
+            }
+        }
+        if (check == 0)
         {
             return true;
         }

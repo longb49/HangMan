@@ -57,9 +57,9 @@ public class Word
    {
       List<string> unArray = new List<string>();
 
-      int wordLength = getWordLength(choice);
+      int wordLength = choice.Length;
 
-      for (int i = 0; i <= wordLength; i += 1) 
+      for (int i = 0; i < wordLength; i++) 
       { 
          unArray.Add("_");
       } 

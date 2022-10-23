@@ -25,8 +25,8 @@ class Loop
         
         while(isFinished != true)
         {
-           Console.WriteLine(status.getManState(playerstate, health));
-           Console.WriteLine(string.Join(", ", blankWord));
+           Console.WriteLine(playerstate[health]);
+           Console.WriteLine(string.Join("", blankWord));
            Console.WriteLine(string.Join(", ", misses));
 
            string userGuess = Console.ReadLine() ?? ""; 
@@ -39,11 +39,11 @@ class Loop
            }
            else
            {
-                status.health = status.health - 1;
+                health = health - 1;
                 misses.Add(userGuess);
            }
-           gameOver.isDead(health);
-           gameOver.isFinished(blankWord);
+           isFinished = gameOver.isDead(health);
+           isFinished = gameOver.isFinished(blankWord);
         }
     }
     
