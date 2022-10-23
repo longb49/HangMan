@@ -77,10 +77,20 @@ public class Word
    // Creates an array of inters which will hold the indexes of the user guess letter //
    public List<int> findIdx(string word, string guess)
    {
-      var foundIdx = new List<int>();
-      for (int i = word.IndexOf(guess); i > -1; i = word.IndexOf(guess, i++))
+      List<int> foundIdx = new List<int>();
+      char guessChar = char.Parse(guess);
+      int maxIdx = word.Length;
+      for (int i = 0; i < maxIdx; i++)
       {
-         foundIdx.Add(i);
+         char result = word[i];
+         if (result == guessChar)
+         {
+            foundIdx.Add(i);
+         }
+         else
+         {
+            continue;
+         }
       }
       return foundIdx;
    }

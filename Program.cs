@@ -34,7 +34,7 @@ class Loop
 
            if(result == true)
            {
-                var foundIdx = word.findIdx(gameWord, userGuess);
+                List<int> foundIdx = word.findIdx(gameWord, userGuess);
                 blankWord = loop.replaceUnArray(blankWord, userGuess, foundIdx);
            }
            else
@@ -67,10 +67,9 @@ class Loop
         Word word = new Word();
         foreach (int i in foundIdx)
         {
-            blankWord[i] = userGuess;
+            blankWord.RemoveAt(i);
+            blankWord.Insert(i, userGuess);
         }
         return blankWord;
    }
-
-
 }

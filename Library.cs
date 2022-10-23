@@ -242,6 +242,6 @@ class Library
                 }
             }
         }
-        return word;
+        return word.ToLower();
     }
 }
